@@ -1,0 +1,16 @@
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.DS_Store
+*.csv
+*.tsv
+*.parquet
+*.npz
+*.npy
+data/
+datasets/
+out/
+logs/
+.venv/
+env/
