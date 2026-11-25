@@ -361,7 +361,7 @@ def generate_figure_2():
 def generate_figure_3():
     print("Generating Figure 3: Continuous Latency Decay Curves...")
     df_summary = pd.read_csv('out/results/fine_grained_latency_summary_unified.csv')
-    df_boot = pd.read_csv('out/results/fine_grained_latency_bootstrap_unified.csv')
+    df_boot = pd.read_csv('out/results/fine_grained_latency_bootstrap_10k_unified.csv')
 
     # Filter sweep conditions
     sweep = df_summary[df_summary['delay_sec'].notna()].copy()
