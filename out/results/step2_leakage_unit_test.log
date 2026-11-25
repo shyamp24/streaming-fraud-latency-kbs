@@ -1,0 +1,34 @@
+================================================================================
+STEP 2: FORMAL VERIFICATION LATENCY & ZERO-LEAKAGE UNIT TEST
+================================================================================
+Loading raw transaction data from /Users/shyamsundar/Dropbox/4 SHYAM DOCs/PHD/PET 2021/PROJECT/Reports/Report  2/Project Phase 2/Datasets/IEEE-ICS/ieee-fraud-detection/train_transaction.csv...
+Loaded 590,540 transactions in 4.1s.
+Building independent raw fraud lookup table...
+Total accounts with at least one fraud: 1,740
+
+--- Running Unit Test Suite ---
+
+[TEST 1] Positive Control (D=0 vs D=30 on identical sampled transactions)
+  --> POSITIVE CONTROL PASSED: D=0 successfully detected 110,008 prior fraud instances.
+  --> DELAY MASKING PASSED: D=30 strictly masked 1,565,187 unconfirmed fraud labels.
+  --> ZERO LEAKAGE VERIFIED: Violations = 0.
+
+[TEST 2] Boundary Condition Verification (t_eval == t_fraud + D vs t_eval == t_fraud + D - 1s)
+  --> BOUNDARY TEST PASSED across 50 accounts. Equality convention (t_eval >= t_fraud + D) strictly confirmed.
+
+[TEST 3] Multi-Split Coverage Verification (Train, Val, Test)
+  --> Train (first 70%): 1,000 transactions audited. Violations = 0 (PASSED).
+  --> Validation (next 10%): 1,000 transactions audited. Violations = 0 (PASSED).
+  --> Test (last 20%): 1,000 transactions audited. Violations = 0 (PASSED).
+
+[TEST 4] Combined Lag (k) and Delay (D) Multi-Grid Verification
+  --> Grid pair (k= 1, D= 7d): 28,526 evaluations checked. Violations = 0 (PASSED). [Stricter bound: Lag k (for frequent accounts) or Delay D]
+  --> Grid pair (k= 1, D=30d): 28,526 evaluations checked. Violations = 0 (PASSED). [Stricter bound: Delay D]
+  --> Grid pair (k= 3, D= 7d): 28,326 evaluations checked. Violations = 0 (PASSED). [Stricter bound: Lag k (for frequent accounts) or Delay D]
+  --> Grid pair (k= 3, D=30d): 28,326 evaluations checked. Violations = 0 (PASSED). [Stricter bound: Delay D]
+  --> Grid pair (k= 5, D=14d): 28,139 evaluations checked. Violations = 0 (PASSED). [Stricter bound: Lag k (for frequent accounts) or Delay D]
+  --> Grid pair (k=10, D=60d): 27,728 evaluations checked. Violations = 0 (PASSED). [Stricter bound: Delay D]
+
+================================================================================
+UNIT TEST SUMMARY: ALL 11/11 TESTS PASSED WITH ZERO LEAKAGE VIOLATIONS.
+================================================================================

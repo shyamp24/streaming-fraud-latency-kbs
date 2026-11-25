@@ -1,0 +1,37 @@
+================================================================================
+SYNTHETIC ACCOUNT BOUNDARY & REAL FEATURE BUILDER AUDIT
+================================================================================
+
+Test 1: Exact Boundary at t_fraud + D and t_fraud + D - 1s (D=30, k=1)
+   hist_tx_count  hist_fraud_count  hist_fraud_rate  hist_fraud_time_since
+0            0.0               0.0              0.0                    NaN
+1            0.0               0.0              0.0                    NaN
+2            1.0               1.0              1.0              2592000.0
+3            2.0               1.0              0.5              2592500.0
+--> Test 1 PASSED: Strict boundary enforcement verified directly in feature builder.
+
+Test 2: Combined Lag (k=2) and Delay (D=30) Interaction
+   hist_tx_count  hist_fraud_count  hist_fraud_rate  hist_fraud_time_since
+0            0.0               0.0              0.0                    NaN
+1            0.0               0.0              0.0                    NaN
+2            0.0               1.0              1.0              3024000.0
+3            1.0               1.0              1.0              3888000.0
+4            2.0               1.0              0.5              4320000.0
+--> Test 2 PASSED: Strict k-lag and D-delay interaction verified.
+
+Test 3: Positive Control (D=0 vs D=30)
+  D=0 at t=15d:  hist_fraud_count = 1.0
+  D=30 at t=15d: hist_fraud_count = 0.0
+--> Test 3 PASSED: Positive control proves D=0 detects fraud while D=30 hides unconfirmed label.
+
+Test 4: Multi-Fraud Cumulative Delay Masking
+   hist_tx_count  hist_fraud_count  hist_fraud_rate  hist_fraud_time_since
+0            0.0               0.0              0.0                    NaN
+1            0.0               0.0              0.0                    NaN
+2            1.0               0.0              0.0                    NaN
+3            2.0               2.0              1.0              3024000.0
+--> Test 4 PASSED: Multi-fraud masking correctly counts 2 confirmed frauds and hides 1 unconfirmed.
+
+================================================================================
+ALL 4 SYNTHETIC REAL-FEATURE-BUILDER AUDIT TESTS PASSED WITH 100% SUCCESS!
+================================================================================

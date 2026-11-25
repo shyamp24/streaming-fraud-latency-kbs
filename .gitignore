@@ -1,16 +1,20 @@
+# Raw datasets and caches (excluded intentionally)
+data/
+train_transaction.csv
+train_identity.csv
+out/predictions/
+*.pkl
+*.parquet
+*.npy
+*.npz
+
+# Python caches
 __pycache__/
 *.py[cod]
 *$py.class
-*.so
+.pytest_cache/
+
+# OS / Editor
 .DS_Store
-*.csv
-*.tsv
-*.parquet
-*.npz
-*.npy
-data/
-datasets/
-out/
-logs/
-.venv/
-env/
+.vscode/
+.idea/

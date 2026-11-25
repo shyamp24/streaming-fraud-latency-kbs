@@ -1,0 +1,42 @@
+{
+  "card1": {
+    "name": "Single Card (card1)",
+    "unique_accounts": 13553,
+    "multi_tx_accounts": 10109,
+    "multi_tx_account_pct": 74.58865195897587,
+    "transactions_in_multi_accounts": 587096,
+    "transactions_in_multi_accounts_pct": 99.41680495817387,
+    "unique_fraud_accounts": 13553,
+    "multi_fraud_accounts": 1050,
+    "multi_fraud_account_pct": 7.747362207629307,
+    "frauds_in_multi_fraud_accounts": 19973,
+    "frauds_in_multi_fraud_accounts_pct": 96.66069786575038,
+    "gap_count": 18923,
+    "gap_median_sec": 38017.0,
+    "gap_p25_sec": 897.0,
+    "gap_p75_sec": 187126.0,
+    "gap_lt_1h_pct": 32.63224647254664,
+    "gap_lt_24h_pct": 63.06082545050996,
+    "gap_lt_7d_pct": 87.89304021561063
+  },
+  "composite": {
+    "name": "Composite Account (card1+card2+card3+card5+addr1)",
+    "unique_accounts": 42946,
+    "multi_tx_accounts": 25625,
+    "multi_tx_account_pct": 59.667955106412705,
+    "transactions_in_multi_accounts": 573219,
+    "transactions_in_multi_accounts_pct": 97.06692180038608,
+    "unique_fraud_accounts": 3544,
+    "multi_fraud_accounts": 1826,
+    "multi_fraud_account_pct": 51.52370203160272,
+    "frauds_in_multi_fraud_accounts": 18945,
+    "frauds_in_multi_fraud_accounts_pct": 91.68562164254949,
+    "gap_count": 17119,
+    "gap_median_sec": 44410.0,
+    "gap_p25_sec": 715.5,
+    "gap_p75_sec": 252398.0,
+    "gap_lt_1h_pct": 33.65266662772358,
+    "gap_lt_24h_pct": 60.19627314679595,
+    "gap_lt_7d_pct": 84.57269700332964
+  }
+}

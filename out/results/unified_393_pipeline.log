@@ -1,0 +1,93 @@
+================================================================================
+UNIFIED 393-FEATURE PIPELINE (STANDARDIZED NOTEBOOK SPECIFICATION)
+================================================================================
+1. Loading raw transaction dataset...
+Loaded 590,540 rows in 39.9s.
+Base feature count: 393 features (expected 393).
+
+--- Training Baseline Detection Model ---
+Baseline: ROC-AUC=0.8767, PR-AUC=0.4866, Brier=0.0321, Cost=$402,743, tau*=0.4235 (trained in 122.9s)
+
+Indexing fraud events per account for exact delay computation...
+
+--- Running Full k x D Grid (14 models) ---
+  [D=0 (k=1)] ROC-AUC=0.9385 (d=+0.0617), PR-AUC=0.6708, Brier=0.0243, Cost=$289,458 (d=-113,285), tau*=0.3606 (134.6s)
+  [D=7 (k=1)] ROC-AUC=0.8812 (d=+0.0045), PR-AUC=0.4961, Brier=0.0333, Cost=$399,494 (d=-3,249), tau*=0.4325 (137.9s)
+  [D=14 (k=1)] ROC-AUC=0.8810 (d=+0.0043), PR-AUC=0.4977, Brier=0.0322, Cost=$395,926 (d=-6,817), tau*=0.4235 (139.7s)
+  [D=30 (k=1)] ROC-AUC=0.8784 (d=+0.0016), PR-AUC=0.4889, Brier=0.0326, Cost=$399,897 (d=-2,846), tau*=0.3516 (139.2s)
+  [D=60 (k=1)] ROC-AUC=0.8803 (d=+0.0036), PR-AUC=0.4908, Brier=0.0331, Cost=$408,658 (d=+5,915), tau*=0.5044 (140.9s)
+  [No-Fraud-Hist (k=1)] ROC-AUC=0.8797 (d=+0.0030), PR-AUC=0.4939, Brier=0.0328, Cost=$403,777 (d=+1,034), tau*=0.4595 (132.8s)
+  [D=0 (k=3)] ROC-AUC=0.8983 (d=+0.0216), PR-AUC=0.5338, Brier=0.0311, Cost=$390,927 (d=-11,816), tau*=0.4235 (135.4s)
+  [D=30 (k=3)] ROC-AUC=0.8800 (d=+0.0032), PR-AUC=0.4923, Brier=0.0325, Cost=$401,609 (d=-1,134), tau*=0.4056 (157.3s)
+  [D=0 (k=5)] ROC-AUC=0.8895 (d=+0.0127), PR-AUC=0.5191, Brier=0.0317, Cost=$391,858 (d=-10,885), tau*=0.3606 (149.8s)
+  [D=30 (k=5)] ROC-AUC=0.8796 (d=+0.0029), PR-AUC=0.4948, Brier=0.0326, Cost=$405,315 (d=+2,572), tau*=0.3876 (137.3s)
+  [D=0 (k=10)] ROC-AUC=0.8834 (d=+0.0066), PR-AUC=0.5021, Brier=0.0327, Cost=$401,888 (d=-855), tau*=0.3606 (171.0s)
+  [D=30 (k=10)] ROC-AUC=0.8773 (d=+0.0005), PR-AUC=0.4935, Brier=0.0325, Cost=$402,678 (d=-65), tau*=0.3876 (142.0s)
+  [D=0 (k=20)] ROC-AUC=0.8821 (d=+0.0053), PR-AUC=0.4975, Brier=0.0328, Cost=$399,094 (d=-3,649), tau*=0.3876 (151.6s)
+  [D=30 (k=20)] ROC-AUC=0.8789 (d=+0.0022), PR-AUC=0.4908, Brier=0.0326, Cost=$398,403 (d=-4,340), tau*=0.4145 (158.4s)
+
+================================================================================
+MULTI-SEED TRAINING VARIANCE ANALYSIS (5 SEEDS WITH SUBSAMPLING)
+================================================================================
+
+Evaluating 5 seeds for Baseline...
+    Seed 42: ROC-AUC=0.8803, PR-AUC=0.4894, Cost=$410,076, tau*=0.3786
+    Seed 43: ROC-AUC=0.8826, PR-AUC=0.4899, Cost=$407,059, tau*=0.3336
+    Seed 44: ROC-AUC=0.8810, PR-AUC=0.4899, Cost=$407,047, tau*=0.4056
+    Seed 45: ROC-AUC=0.8821, PR-AUC=0.4938, Cost=$401,998, tau*=0.4056
+    Seed 46: ROC-AUC=0.8815, PR-AUC=0.4851, Cost=$400,974, tau*=0.4056
+
+Evaluating 5 seeds for D=0 (k=1)...
+    Seed 42: ROC-AUC=0.9373, PR-AUC=0.6672, Cost=$286,433, tau*=0.3516
+    Seed 43: ROC-AUC=0.9386, PR-AUC=0.6710, Cost=$284,162, tau*=0.3966
+    Seed 44: ROC-AUC=0.9406, PR-AUC=0.6706, Cost=$287,246, tau*=0.3426
+    Seed 45: ROC-AUC=0.9385, PR-AUC=0.6697, Cost=$281,981, tau*=0.3516
+    Seed 46: ROC-AUC=0.9391, PR-AUC=0.6710, Cost=$283,106, tau*=0.4145
+
+Evaluating 5 seeds for D=30 (k=1)...
+    Seed 42: ROC-AUC=0.8814, PR-AUC=0.4853, Cost=$405,805, tau*=0.3876
+    Seed 43: ROC-AUC=0.8813, PR-AUC=0.4861, Cost=$404,808, tau*=0.4145
+    Seed 44: ROC-AUC=0.8827, PR-AUC=0.4832, Cost=$411,410, tau*=0.4145
+    Seed 45: ROC-AUC=0.8825, PR-AUC=0.4910, Cost=$413,820, tau*=0.4415
+    Seed 46: ROC-AUC=0.8830, PR-AUC=0.4904, Cost=$405,569, tau*=0.4325
+
+Evaluating 5 seeds for No-Fraud-Hist (k=1)...
+    Seed 42: ROC-AUC=0.8832, PR-AUC=0.4856, Cost=$400,894, tau*=0.4145
+    Seed 43: ROC-AUC=0.8835, PR-AUC=0.4901, Cost=$395,226, tau*=0.3966
+    Seed 44: ROC-AUC=0.8822, PR-AUC=0.4859, Cost=$401,323, tau*=0.4505
+    Seed 45: ROC-AUC=0.8840, PR-AUC=0.4903, Cost=$395,694, tau*=0.4145
+    Seed 46: ROC-AUC=0.8817, PR-AUC=0.4924, Cost=$397,394, tau*=0.4595
+
+--- Seed Variance Summary (Mean +/- SD across 5 seeds) ---
+              model  roc_auc_mean  roc_auc_std  pr_auc_mean  pr_auc_std  brier_mean  brier_std     cost_mean    cost_std  cost_top1_mean  cost_top1_std  tau_mean  tau_std
+           Baseline      0.881466     0.000913     0.489620    0.003060    0.034348   0.000218 405430.587500 3823.946741    530965.13750    1449.443592  0.385778 0.031400
+          D=0 (k=1)      0.938815     0.001187     0.669901    0.001597    0.025537   0.000123 284585.503125 2215.969441    497632.46875    3259.741799  0.371394 0.032037
+         D=30 (k=1)      0.882169     0.000770     0.487196    0.003373    0.034459   0.000339 408282.362500 4062.648907    531828.31250     302.222684  0.418141 0.020696
+No-Fraud-Hist (k=1)      0.882922     0.000932     0.488883    0.002970    0.035164   0.000226 398106.100000 2860.879189    529269.05000     767.735918  0.427131 0.026668
+
+================================================================================
+SAVING MASTER PREDICTION ARRAYS AND SHA256 CHECKSUM
+================================================================================
+Saved 35 prediction arrays to out/predictions/unified_393_test_predictions.npz
+SHA256: 3d2f7cce19a200a55228b97863ac24ffef6b50e4812036ccb432a4137d2f5f38
+Checksum logged in out/predictions/checksums.sha256
+
+================================================================================
+ACCOUNT-CLUSTERED BOOTSTRAP (B=1,000 REPLICATES)
+================================================================================
+Building cluster map for 7,080 unique accounts in test set...
+  Bootstrap progress: 200/1000 iterations (234.9s)...
+  Bootstrap progress: 400/1000 iterations (465.4s)...
+  Bootstrap progress: 600/1000 iterations (684.0s)...
+  Bootstrap progress: 800/1000 iterations (904.3s)...
+  Bootstrap progress: 1000/1000 iterations (1133.4s)...
+
+================================================================================
+EXPORTING TABLES AND FINAL SUMMARY
+================================================================================
+Saved files:
+ - out/results/unified_393_grid_results.csv
+ - out/results/unified_393_seed_variance.csv
+ - out/results/unified_393_seed_summary.csv
+ - out/results/unified_393_clustered_bootstrap.csv
+Total pipeline completed in 6125.7s

@@ -1,0 +1,6 @@
+Assertion Stage Passed at 2026-11-22 13:05:42
+Bitwise verified:
+  Baseline: AUC=0.8813, Cost=$408,061
+  D=0 (k=1): AUC=0.9388, Cost=$285,947
+  D=30 (k=1): AUC=0.8818, Cost=$407,341
+Mixture anchors q=0.0 and q=1.0 verified identical to D=30d and D=1h.
