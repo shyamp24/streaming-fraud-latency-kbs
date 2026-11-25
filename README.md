@@ -26,7 +26,6 @@ pip install -r requirements.txt
 │   ├── run_unified_393_pipeline.py          # Table 1: Unified 393-feature 3-seed benchmark
 │   ├── run_fine_grained_latency_sweep.py    # Table 3: Continuous delay sweep (0s to 30d)
 │   ├── run_bootstrap_10k_unified.py         # Tables 3 & 3B: 10,000-replicate clustered bootstrap
-│   ├── run_fine_grained_bootstrap.py        # 1,000-replicate clustered bootstrap helper
 │   ├── run_clustered_bootstrap_1k.py        # 1,000-replicate clustered bootstrap on the Table 1 predictions
 │   ├── run_canonical_experiments.py         # Tables 3C & 3D: Cost sensitivity & dual-channel mixture
 │   ├── run_constructive_features.py         # Table 4: Constructive label-free features (1,000 replicates)

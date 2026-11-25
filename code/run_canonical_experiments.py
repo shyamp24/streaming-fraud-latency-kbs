@@ -330,11 +330,11 @@ auc_d30_exp, pr_d30_exp, cost_d30_exp, _ = check_canon_cost('D=30 (k=1)', d30_p,
 auc_nfh_exp, pr_nfh_exp, cost_nfh_exp, _ = check_canon_cost('No-Fraud-Hist', nfh_p, TAU_NFH, 399148, 3403)
 check_canon_cost('D=24h (1d)', d24h_p, TAU_D24h, 394326, 3161)
 
-print("\nALL CANONICAL COST ASSERTIONS PASSED! Exactly reproduces $408,061, $285,947, $407,341, $399,148, $394,326.")
+print("\nCost checks passed: reproduces $408,061, $285,947, $407,341, $399,148, $394,326.")
 
 # Print the checkpoint message so the user can verify the assertion stage
 print("\n" + "=" * 80)
-print("ASSERTION STAGE COMPLETE: ALL ANCHORS AND 1.0x COSTS VERIFIED.")
+print("Cost and anchor checks complete.")
 print("=" * 80)
 
 # Save intermediate assertion status file
