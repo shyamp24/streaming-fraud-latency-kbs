@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Step 5: Composite Account ID Robustness Check
+Composite account identifier robustness check
 Compares card1 vs Composite Account ID (card1 + card2 + card3 + card5 + addr1)
 
 1. Reports structural account density & burst metrics:
@@ -39,7 +39,7 @@ from sklearn.metrics import roc_auc_score, average_precision_score, brier_score_
 warnings.filterwarnings('ignore')
 
 print("=" * 80)
-print("STEP 5: COMPOSITE ACCOUNT ID ROBUSTNESS CHECK")
+print("Composite account identifier robustness check")
 print("=" * 80)
 
 t_start = time.time()
@@ -459,5 +459,5 @@ for _, r in df_summary.iterrows():
     print(f"  Delta Cost:   ${r['d_cost_pt']:+,.0f} [${r['d_cost_ci_low']:+,.0f}, ${r['d_cost_ci_high']:+,.0f}], p={r['p_val_cost']:.3f}")
 
 print("\n" + "=" * 80)
-print(f"STEP 5 FULLY COMPLETED IN {time.time()-t_start:.1f}s.")
+print(f"Finished in {time.time()-t_start:.1f}s.")
 print("=" * 80)

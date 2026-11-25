@@ -248,7 +248,7 @@ for s in SEEDS:
     tau_cp = base_comp.loc[s, 'tau']
     assert tau_m == tau_c == tau_cp, f"Baseline seed {s} Tau mismatch: {tau_m} vs {tau_c} vs {tau_cp}"
 
-print("✓ ASSERTION PASSED: Baseline seeds 42, 43, 44 metrics are 100% identical across all scripts!")
+print("Check passed: baseline seeds 42, 43, 44 give identical metrics in all scripts.")
 
 # Assertion 2: D=0 and D=30 cost in Master Pipeline vs Fine-Grained Sweep
 df_master_var = pd.read_csv("out/results/unified_393_seed_variance.csv")

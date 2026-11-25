@@ -6,7 +6,7 @@ import pandas as pd
 from sklearn.metrics import roc_auc_score, average_precision_score
 
 print("=" * 80)
-print("STEP 3: ACCOUNT-CLUSTERED BOOTSTRAP (B=1,000 REPLICATES)")
+print("Account-clustered bootstrap (B=1,000 replicates)")
 print("=" * 80)
 
 # Load test predictions and metadata
@@ -156,13 +156,13 @@ for m1, m2 in comparisons:
     })
 
 df_summary = pd.DataFrame(summary_rows)
-out_csv = "out/results/step3_clustered_bootstrap_grid.csv"
+out_csv = "out/results/clustered_bootstrap_1k_grid.csv"
 df_summary.to_csv(out_csv, index=False)
 print(f"\nAccount-clustered bootstrap results saved to {out_csv}")
 print("\n" + df_summary.to_string(index=False))
 
 # Generate markdown report
-md_content = f"""# Step 3: Account-Clustered Bootstrap Analysis (B=1,000)
+md_content = f"""# Account-Clustered Bootstrap Analysis (B=1,000)
 
 **Methodology:** Accounts (unique `card1` entities, $N=7,080$) are resampled with replacement $B=1,000$ times. All transactions belonging to selected accounts are evaluated as a cluster, capturing intra-account transaction correlation and providing cluster-robust standard errors and empirical 95% confidence intervals.
 
@@ -185,7 +185,7 @@ md_content = f"""# Step 3: Account-Clustered Bootstrap Analysis (B=1,000)
 | | Total Cost ($) | **{df_summary.loc[11, 'mean_diff']:,.0f}** | ${df_summary.loc[11, 'std_err']:,.0f} | [${df_summary.loc[11, 'ci_2.5']:,.0f}, ${df_summary.loc[11, 'ci_97.5']:,.0f}] | $p = {df_summary.loc[11, 'p_value_two_sided']:.3f}$ | Equivalent cost |
 """
 
-out_md = "out/results/step3_clustered_bootstrap_summary.md"
+out_md = "out/results/clustered_bootstrap_1k_summary.md"
 with open(out_md, "w") as f:
     f.write(md_content)
 print(f"Summary markdown saved to {out_md}")

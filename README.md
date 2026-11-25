@@ -27,7 +27,7 @@ pip install -r requirements.txt
 │   ├── run_fine_grained_latency_sweep.py    # Table 3: Continuous delay sweep (0s to 30d)
 │   ├── run_bootstrap_10k_unified.py         # Tables 3 & 3B: 10,000-replicate clustered bootstrap
 │   ├── run_fine_grained_bootstrap.py        # 1,000-replicate clustered bootstrap helper
-│   ├── run_step3_clustered_bootstrap.py     # Clustered bootstrap grid verification
+│   ├── run_clustered_bootstrap_1k.py        # 1,000-replicate clustered bootstrap on the Table 1 predictions
 │   ├── run_canonical_experiments.py         # Tables 3C & 3D: Cost sensitivity & dual-channel mixture
 │   ├── run_constructive_features.py         # Table 4: Constructive label-free features (1,000 replicates)
 │   ├── run_composite_account_check.py       # Table 5: Composite account robustness (1,000 replicates)
@@ -59,7 +59,7 @@ export IEEE_CIS_ID_PATH="/path/to/train_identity.csv"
 
 | Paper Table / Analysis | Script | Saved Output File(s) in `out/results/` |
 | :--- | :--- | :--- |
-| **Zero-Leakage Verification** | `code/test_synthetic_boundary_builder.py`, `code/test_leakage_unit_test.py` | `step2_synthetic_boundary_test.log`, `step2_leakage_unit_test.log` |
+| **Zero-Leakage Verification** | `code/test_synthetic_boundary_builder.py`, `code/test_leakage_unit_test.py` | `synthetic_boundary_test.log`, `leakage_unit_test.log` |
 | **Table 1 (Master Unified 3-Seed Benchmark)** | `code/run_unified_393_pipeline.py` | `unified_393_seed_summary.csv`, `unified_393_seed_variance.csv`, `unified_393_clustered_bootstrap.csv` |
 | **Table 2 (Intra-Burst Clustering Statistics)** | `code/generate_manuscript_figures.py` | Computed directly from `train_transaction.csv` (`Card1` inter-burst intervals) |
 | **Table 3 (Continuous Latency Decay & 10,000-Replicate Bootstrap vs. Baseline)** | `code/run_fine_grained_latency_sweep.py`, `code/run_bootstrap_10k_unified.py` | `fine_grained_latency_summary_unified.csv`, `fine_grained_latency_bootstrap_10k_unified.csv` |
@@ -80,11 +80,11 @@ python code/test_synthetic_boundary_builder.py
 python code/test_leakage_unit_test.py
 
 # 2. Main 393-feature benchmark (Table 1) & fine-grained delay sweep (Table 3)
-#    (Generates out/predictions/*.npz required by step 3)
+#    (Generates out/predictions/*.npz required by the bootstrap in step 3)
 python code/run_unified_393_pipeline.py
 python code/run_fine_grained_latency_sweep.py
 
-# 3. 10,000-replicate clustered bootstrap (Tables 3 & 3B; requires .npz files from step 2)
+# 3. 10,000-replicate clustered bootstrap (Tables 3 & 3B; requires .npz files from step 2 above)
 python code/run_bootstrap_10k_unified.py
 
 # 4. Cost-schedule sensitivity & dual-channel mixture delay (Tables 3C & 3D)

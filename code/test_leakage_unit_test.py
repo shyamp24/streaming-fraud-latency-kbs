@@ -5,7 +5,7 @@ import numpy as np
 import pandas as pd
 
 print("=" * 80)
-print("STEP 2: FORMAL VERIFICATION LATENCY & ZERO-LEAKAGE UNIT TEST")
+print("Zero-leakage unit test: verification latency and positional lag")
 print("=" * 80)
 
 # Load raw transaction data

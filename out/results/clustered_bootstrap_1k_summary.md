@@ -1,4 +1,4 @@
-# Step 3: Account-Clustered Bootstrap Analysis (B=1,000)
+# Account-Clustered Bootstrap Analysis (B=1,000)
 
 **Methodology:** Accounts (unique `card1` entities, $N=7,080$) are resampled with replacement $B=1,000$ times. All transactions belonging to selected accounts are evaluated as a cluster, capturing intra-account transaction correlation and providing cluster-robust standard errors and empirical 95% confidence intervals.
 
